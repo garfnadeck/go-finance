@@ -58,12 +58,10 @@ func TestGetAccount(t *testing.T) {
 	require.Equal(t, accounts1.Description, accounts2.Description)
 }
 
-func TestDeleteAccount(t *testing.T) {
+func TestDeleteAccounts(t *testing.T) {
 	account := createRandomAccount(t)
 	err := testQueries.DeleteAccount(context.Background(), account.ID)
 	require.NoError(t, err)
-	fmt.Printf("erro %v", err)
-
 }
 
 func TestUpdateAccounts(t *testing.T) {
