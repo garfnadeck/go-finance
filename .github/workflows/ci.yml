@@ -44,4 +44,4 @@ jobs:
         run: make migrateup
 
       - name: Run Test
-        run: make testmaster
+        run: make test
