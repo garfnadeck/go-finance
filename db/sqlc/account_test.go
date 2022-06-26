@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	util "go_finance/utils"
-	"log"
 	"testing"
 	"time"
 
@@ -91,11 +90,11 @@ func TestListAccounts(t *testing.T) {
 
 	arg := GetAccountsParams{
 		UserID:      lastAccount.UserID,
-		CategoryID:  lastAccount.CategoryID,
 		Type:        lastAccount.Type,
+		CategoryID:  lastAccount.CategoryID,
+		Date:        lastAccount.Date,
 		Title:       lastAccount.Title,
 		Description: lastAccount.Description,
-		Date:        lastAccount.Date,
 	}
 	accounts, err := testQueries.GetAccounts(context.Background(), arg)
 	require.NoError(t, err)
@@ -105,12 +104,10 @@ func TestListAccounts(t *testing.T) {
 		require.Equal(t, lastAccount.ID, account.ID)
 		require.Equal(t, lastAccount.UserID, account.UserID)
 		require.Equal(t, lastAccount.Title, account.Title)
-		require.Equal(t, lastAccount.Type, account.Type)
 		require.Equal(t, lastAccount.Description, account.Description)
 		require.Equal(t, lastAccount.Value, account.Value)
 		require.NotEmpty(t, lastAccount.CreatedAt)
 		require.NotEmpty(t, lastAccount.Date)
-		log.Fatal("account category title: ", account.CategoryTitle)
 
 	}
 }
