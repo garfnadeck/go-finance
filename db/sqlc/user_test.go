@@ -2,7 +2,7 @@ package db
 
 import (
 	"context"
-	util "go_finance/utils"
+	util "github.com/garfnadeck/go-finance/utils"
 	"testing"
 
 	// "time"
