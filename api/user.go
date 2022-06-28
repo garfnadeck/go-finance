@@ -8,9 +8,9 @@ import (
 )
 
 type createUserRequest struct {
-	Username string `json:"username" binding: "required"`
-	Password string `json:"password" binding: "required"`
-	Email    string `json:"email" binding: "required"`
+	Username string `json:"username" binding:"required"`
+	Password string `json:"password" binding:"required"`
+	Email    string `json:"email" binding:"required"`
 }
 
 
@@ -36,7 +36,7 @@ func (server *Server) createUser(ctx *gin.Context) {
 
 
 type getUserRequest struct {
-	Username string `uri:"username" binding: "required"`
+	Username string `uri:"username" binding:"required"`
 }
 
 func (server *Server) getUser(ctx *gin.Context) {
@@ -59,7 +59,7 @@ func (server *Server) getUser(ctx *gin.Context) {
 }
 
 type getUserByIdRequest struct {
-	ID int32 `uri:"id" binding: "required"`
+	ID int32 `uri:"id" binding:"required"`
 }
 
 func (server *Server) getUserById(ctx *gin.Context) {
